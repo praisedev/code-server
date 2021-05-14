@@ -4,6 +4,8 @@ START_DIR="${START_DIR:-/home/coder/project}"
 
 PREFIX="deploy-code-server"
 
+alias pip="/usr/bin/python3 -m pip "
+
 mkdir -p $START_DIR
 
 # function to clone the git repo or add a user's first file if no repo was specified.
