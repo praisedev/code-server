@@ -1,5 +1,5 @@
 # Start from the code-server Debian base image
-FROM codercom/code-server:3.9.3 
+FROM codercom/code-server:latest
 
 USER coder
 
@@ -10,8 +10,10 @@ COPY deploy-container/settings.json .local/share/code-server/User/settings.json
 ENV SHELL=/bin/bash
 
 # Install unzip + rclone (support for remote filesystem)
-RUN sudo apt-get update && sudo apt-get install unzip nano wget curl git neofetch python3-pip -y
+RUN sudo apt-get update && sudo apt-get install unzip nano wget curl git neofetch python3-pip nodejs npm -y
 RUN curl https://rclone.org/install.sh | sudo bash
+
+RUN alias pip="/usr/bin/python3 -m pip "
 
 # Copy rclone tasks to /tmp, to potentially be used
 COPY deploy-container/rclone-tasks.json /tmp/rclone-tasks.json
