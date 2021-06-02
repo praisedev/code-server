@@ -10,7 +10,7 @@ COPY deploy-container/settings.json .local/share/code-server/User/settings.json
 ENV SHELL=/bin/bash
 
 # Install unzip + rclone (support for remote filesystem)
-RUN sudo apt-get update && sudo apt-get install unzip nano wget curl git neofetch python3-pip nodejs npm -y
+RUN sudo apt-get update && sudo apt-get install unzip nano wget curl git neofetch python3-pip nodejs npm xfce4 xfce4-goodies tightvncserver novnc websockify python3-numpy build-essential net-tools curl git software-properties-common nmap -y
 RUN curl https://rclone.org/install.sh | sudo bash
 
 RUN alias pip="/usr/bin/python3 -m pip "
